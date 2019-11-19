@@ -20,7 +20,7 @@ exports[`AddFundsSourcePicker component renders default options 1`] = `
     onKeyDown={[Function]}
   >
     <div
-      className=" css-1to61u5-control"
+      className=" css-9pc60l-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -141,7 +141,7 @@ exports[`AddFundsSourcePicker component renders fromCollectives by type in optgr
     onKeyDown={[Function]}
   >
     <div
-      className=" css-1to61u5-control"
+      className=" css-9pc60l-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -262,7 +262,7 @@ exports[`AddFundsSourcePicker component renders host name as first option 1`] = 
     onKeyDown={[Function]}
   >
     <div
-      className=" css-1to61u5-control"
+      className=" css-9pc60l-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
@@ -383,7 +383,7 @@ exports[`AddFundsSourcePicker component renders loading state 1`] = `
     onKeyDown={[Function]}
   >
     <div
-      className=" css-1to61u5-control"
+      className=" css-9pc60l-control"
       onMouseDown={[Function]}
       onTouchEnd={[Function]}
     >
