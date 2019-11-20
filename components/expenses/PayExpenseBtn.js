@@ -126,11 +126,21 @@ class PayExpenseBtn extends React.Component {
             .processorFee .inputField {
               margin-top: 0.5rem;
             }
+            .recordAsPaid {
+              margin-right: 5px;
+            }
           `}
         </style>
-        <SmallButton className="pay" onClick={this.onClick} disabled={this.props.disabled || disabled} title={title}>
+
+        <SmallButton
+          className="pay recordAsPaid"
+          onClick={this.onClick}
+          disabled={this.props.disabled || disabled}
+          title={title}
+        >
           <FormattedMessage id="expense.pay.manual.btn" defaultMessage="Record as paid" />
         </SmallButton>
+
         {selectedPayoutMethod !== 'other' && (
           <SmallButton className="pay" onClick={this.onClick} disabled={this.props.disabled || disabled} title={title}>
             <FormattedMessage
