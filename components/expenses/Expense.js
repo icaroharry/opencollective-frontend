@@ -130,11 +130,11 @@ class Expense extends React.Component {
       },
       no: { id: 'no', defaultMessage: 'No' },
       yes: { id: 'yes', defaultMessage: 'Yes' },
-      'delete.modal.header': {
+      'deleteExpense.modal.header': {
         id: 'deleteExpense.modal.header',
         defaultMessage: 'Delete Expense',
       },
-      'delete.modal.body': {
+      'deleteExpense.modal.body': {
         id: 'deleteExpense.modal.body',
         defaultMessage: 'Are you sure you want to delete this expense?',
       },
@@ -468,8 +468,8 @@ class Expense extends React.Component {
           {this.state.showDeleteExpenseModal && (
             <ConfirmationModal
               show={this.state.showDeleteExpenseModal}
-              header={intl.formatMessage(this.messages['delete.modal.header'])}
-              body={intl.formatMessage(this.messages['delete.modal.body'])}
+              header={intl.formatMessage(this.messages['deleteExpense.modal.header'])}
+              body={intl.formatMessage(this.messages['deleteExpense.modal.body'])}
               onClose={() => this.setState({ showDeleteExpenseModal: false })}
               cancelLabel={intl.formatMessage(this.messages['no'])}
               cancelHandler={() => this.setState({ showDeleteExpenseModal: false })}
