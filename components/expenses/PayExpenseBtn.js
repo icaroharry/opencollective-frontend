@@ -31,7 +31,7 @@ class PayExpenseBtn extends React.Component {
       loading: false,
       paymentProcessorFeeInCollectiveCurrency: 0,
     };
-    this.onClick = this.onClick.bind(this);
+
     this.messages = defineMessages({
       'paypal.missing': {
         id: 'expense.payoutMethod.paypal.missing',
@@ -40,7 +40,7 @@ class PayExpenseBtn extends React.Component {
     });
   }
 
-  async onClick() {
+  async handleOnClickPay(manuallyPayPaypalMethod = false) {
     const { expense, lock, unlock } = this.props;
     if (this.props.disabled) {
       return;
@@ -53,6 +53,7 @@ class PayExpenseBtn extends React.Component {
         this.props.paymentProcessorFeeInCollectiveCurrency,
         this.props.hostFeeInCollectiveCurrency,
         this.props.platformFeeInCollectiveCurrency,
+        manuallyPayPaypalMethod,
       );
       this.setState({ loading: false });
       await this.props.refetch();
@@ -134,7 +135,7 @@ class PayExpenseBtn extends React.Component {
 
         <SmallButton
           className="pay recordAsPaid"
-          onClick={this.onClick}
+          onClick={() => this.handleOnClickPay(true)}
           disabled={this.props.disabled || disabled}
           title={title}
         >
@@ -142,7 +143,12 @@ class PayExpenseBtn extends React.Component {
         </SmallButton>
 
         {selectedPayoutMethod !== 'other' && (
-          <SmallButton className="pay" onClick={this.onClick} disabled={this.props.disabled || disabled} title={title}>
+          <SmallButton
+            className="pay"
+            onClick={() => this.handleOnClickPay()}
+            disabled={this.props.disabled || disabled}
+            title={title}
+          >
             <FormattedMessage
               id="expense.pay.btn"
               defaultMessage="Pay with {paymentMethod}"
@@ -162,12 +168,14 @@ const payExpenseQuery = gql`
     $paymentProcessorFeeInCollectiveCurrency: Int
     $hostFeeInCollectiveCurrency: Int
     $platformFeeInCollectiveCurrency: Int
+    $manuallyPayPaypalMethod: Boolean
   ) {
     payExpense(
       id: $id
       paymentProcessorFeeInCollectiveCurrency: $paymentProcessorFeeInCollectiveCurrency
       hostFeeInCollectiveCurrency: $hostFeeInCollectiveCurrency
       platformFeeInCollectiveCurrency: $platformFeeInCollectiveCurrency
+      manuallyPayPaypalMethod: $manuallyPayPaypalMethod
     ) {
       id
       status
@@ -196,6 +204,7 @@ const addMutation = graphql(payExpenseQuery, {
       paymentProcessorFeeInCollectiveCurrency,
       hostFeeInCollectiveCurrency,
       platformFeeInCollectiveCurrency,
+      manuallyPayPaypalMethod,
     ) => {
       return await mutate({
         variables: {
@@ -203,6 +212,7 @@ const addMutation = graphql(payExpenseQuery, {
           paymentProcessorFeeInCollectiveCurrency,
           hostFeeInCollectiveCurrency,
           platformFeeInCollectiveCurrency,
+          manuallyPayPaypalMethod,
         },
       });
     },

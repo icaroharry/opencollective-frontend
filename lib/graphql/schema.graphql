@@ -1,5 +1,5 @@
 # source: http://localhost:3060/graphql
-# timestamp: Mon Nov 25 2019 15:10:44 GMT+0100 (GMT+01:00)
+# timestamp: Tue Nov 26 2019 14:04:56 GMT+0100 (West Africa Standard Time)
 
 """
 Application model
@@ -1562,6 +1562,7 @@ type Mutation {
     paymentProcessorFeeInCollectiveCurrency: Int
     hostFeeInCollectiveCurrency: Int
     platformFeeInCollectiveCurrency: Int
+    manuallyPayPaypalMethod: Boolean
   ): ExpenseType
   markOrderAsPaid(id: Int!): OrderType
   markPendingOrderAsExpired(id: Int!): OrderType
