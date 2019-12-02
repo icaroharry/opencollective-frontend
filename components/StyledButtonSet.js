@@ -58,7 +58,7 @@ const StyledButtonSet = ({
         combo={combo || undefined}
         key={item}
         buttonSize={size}
-        buttonStyle={item === selected ? 'primary' : 'standard'}
+        buttonStyle={item === selected ? 'primary' : 'graystyle'}
         onClick={onChange && (() => onChange(item))}
         className={item === selected ? 'selected' : undefined}
         disabled={disabled}

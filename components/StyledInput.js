@@ -37,14 +37,21 @@ const StyledInput = styled.input`
   border-style: ${props => (props.bare ? 'none' : 'solid')};
   box-sizing: border-box;
   outline: none;
+  background-color: ${themeGet('colors.black.50')};
 
   &:disabled {
     background-color: ${themeGet('colors.black.50')};
     cursor: not-allowed;
   }
 
-  &:focus, &:hover:not(:disabled) {
+  &:focus{
     border-color: ${themeGet('colors.primary.300')};
+    background-color: white;
+  }
+  
+  &:hover:not(:disabled) {
+    border-color: ${themeGet('colors.primary.300')};
+    
   }
 
   &::placeholder {
